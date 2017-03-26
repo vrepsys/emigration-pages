@@ -1,0 +1,241 @@
+body {
+  font-family: 'Open Sans', serif;
+  background: #FFF6F3;
+  /*background: white;*/
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.net-migration-linechart-container,
+.migration-linechart-container,
+.monthly-emigration-linechart-container,
+.emigration-by-sex-linechart-container {
+
+}
+
+.chat-container {
+  background-color: white;
+  /*background-color: #f9f9f9;*/
+  border: 1px solid #EEE;
+  border-collapse: collapse;
+  padding: 14px;
+}
+
+.chart-header {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.chart-text {
+  font-size: 13px;
+}
+
+.chart-text p {
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+a[href] {
+  text-decoration: none;
+  color: #00618d;
+  padding: 0px 2px;
+}
+
+.float-center {
+  float: right;
+
+  position: relative;
+  left: -50%;
+  text-align: left;
+}
+
+.float-center > .centered-item {
+  position: relative;
+  left: 50%;
+}
+
+.clear {
+  clear: both;
+}
+
+.item, .footnotes {
+  width: 750px;
+  margin: 10px auto 10px auto;
+  padding: 10px 20px;
+}
+
+.item {
+  background: #FFF6F3;
+  /*background: white;*/
+  --box-shadow: 0 1px 1px gray;
+  --border-radius: 2px;
+}
+
+.footnotes {
+  font-size: 12px;
+}
+
+.item h1 {
+  font-family: 'Karma', serif;
+  font-size: 58px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #444;
+  margin: 0;
+}
+
+.item .comment {
+  font-size: 16px;
+  font-weight: 400;
+  color: #DDD;
+  margin: 0;
+}
+
+.maps-container {
+  margin: 10px auto;
+}
+
+svg.map .region {
+  stroke: rgba(58, 13, 13, 1);
+  stroke-width: .3;
+}
+
+svg.map .active-region {
+  stroke: #111;
+  stroke-width: 1;
+}
+
+text.caption {
+  font-family: 'Open Sans', serif;
+  font-weight: 700;
+  color: #555;
+}
+
+text.caption.tiny {
+  font-size: 13px;
+}
+
+text.caption.small {
+  font-size: 15px;
+}
+
+text.caption.medium {
+  font-size: 17px;
+}
+
+.item-text {
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 12px;
+  background: #EFEFEF;
+  color: black;
+  border: 1px solid #999;
+  --border-radius: 2px;
+  font-weight: 600;
+  font-family: 'Open Sans', serif;
+  shape-rendering: crispEdges;
+}
+
+
+table.emigration-grid  {
+  font-size: 13px;
+  border-collapse: collapse;
+  border-right: 1px solid #CCC;
+}
+
+table.emigration-grid  {
+  font-size: 13px;
+  border-collapse: collapse;
+}
+
+table.emigration-grid th  {
+  color: #EFEFEF;
+  font-size: 13px;
+  font-weight: 700px;
+  text-transform: uppercase;
+  padding: 1px 8px 1px 8px;
+  letter-spacing: 1px;
+}
+
+table.emigration-grid th.header-1  {
+  font-size: 16px;
+  font-weight: 700px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+table.emigration-grid td {
+  --border-bottom: 1px dotted #AAA;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  overflow: hidden;
+}
+
+.emigration-grid th.female {
+  background-color: rgb(153, 51, 102);
+  color: white;
+}
+
+.emigration-grid th.male {
+  background-color: rgb(102, 102, 153);
+  color: white;
+}
+
+table.emigration-grid th.age-col {
+  background-color: #555;
+  text-align: right;
+  padding-right: 2px;
+  color: #FEFEFE;
+}
+
+.emigration-grid td.female {
+  --background-color: rgba(246, 40, 118, 1);
+}
+
+table.emigration-grid td.male {
+  --background-color: rgba(118,40,246, 0.4);
+}
+
+table.emigration-grid td.change_m-col {
+  border-right: 1px solid #CCC;
+}
+
+table.emigration-grid tr.last-row td.emigration_m_2014-col,
+table.emigration-grid tr.last-row td.emigration_m_2015-col,
+table.emigration-grid tr.last-row td.change_m-col,
+table.emigration-grid tr.last-row td.emigration_f_2014-col,
+table.emigration-grid tr.last-row td.emigration_f_2015-col,
+table.emigration-grid tr.last-row td.change_f-col {
+  border-bottom: 1px solid #CCC;
+}
+
+table.emigration-grid td.age-col {
+  background-color: #F3F3F3;
+  letter-spacing: 1px;
+  color: #333;
+  border-right: 1px solid #CCC;
+  text-align: right;
+  font-weight: bold;
+}
+
+table.emigration-grid td {
+  text-align: center;
+  padding: 3px;
+  width: 46px;
+}
+
+.last-row td {
+  background-color: #EAEAEA;
+  font-weight: bold;
+}

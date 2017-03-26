@@ -1,0 +1,44 @@
+.population-chart .y.axis path {
+  stroke: none;
+}
+
+.population-chart g.age-group {
+  opacity: .4;
+  transition: opacity .3s ease;
+}
+
+.population-chart g.age-group.active {
+  opacity: 1;
+}
+
+.population-data {
+  display: none
+}
+
+.population-data.active {
+  display:block;
+}
+
+.population-data .men, .population-data .women {
+  padding: 10px;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.population-data .men {background: #99E4EE;}
+.population-data .women {background: #F6A5C0;}
+
+
+.population-data .men:before {
+  content: 'Vyrai'
+}
+
+.population-data .women:before {
+  content: 'Moterys'
+}
+
+.last-row td {
+  background-color: #EAEAEA;
+  font-weight: bold;
+}

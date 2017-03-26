@@ -1,0 +1,168 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Emigracija</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <link href="https://fonts.googleapis.com/css?family=Karma:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/linechart.css?v=1.0">
+    <link rel="stylesheet" href="css/map.css?v=1.0">
+    <link rel="stylesheet" href="css/population-chart.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Karma:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.12.0/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class='container'>
+      <div class='item'>
+        <h1>Migacija Lietuvoje</h1>
+
+        <div style="margin-bottom: 10px;">
+          <div class='item-text' style='float: left; width: 330px;'>
+            <p>
+              Nuo 2010 iki 2014 metų mažėjusi emigracija ir augusi imigracija suteikė vilčių, jog emigracija yra sparčiai nykstanti problema. Nuo 2010 iki 2014 emigracija sumažėjo daugiau negu du kartus, ir atrodė jog išvažiuojančiųjų skaičius greitai susilygins su į Lietuvą atvykstančių gyventi žmonių skaičiumi.
+            </p>
+            <p>
+              Tačiau 2015-2016 metais migracijos rodikliai pakeitė kryptį. Emigracija vėl pradėjo sparčiai augti, o imigracija trauktis. 2016 fiksuojamas 13% emigracijos augimas - emigravo apie 5800 gyventojų daugiau negu 2015 metais.
+            </p>
+            <p>
+              Tuo tarpu imigracija traukėsi 8%. 2016-ais šalyje gyveną deklaravo beveik 2000 gyventojų mažiau nei 2015.
+          </div>
+
+          <div class='chat-container' style='width: 360px; float: left;'>
+            <div class='chart-header'>Metinis emigrantų skaičius</div>
+            <div class='migration-linechart-container linechart-container'></div>
+          </div>
+          <div class='clear'></div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+          <div class='item-text' style='float: left; width: 330px;'>
+            <p>
+              Skaidant imigarcijos duomenis pagal gimimo vietą galima pastebėti, jog Lietuvoje gimusių imigrantų skaičius 2014 metais pasiekė aukščiausią tašką, o 2015 ir 2016 metais sparčiai krito.
+            </p>
+            <p>
+              Tuo tarpu užsienyje gimusių žmonių 2016 metais į Lietuvą gyventi atvyko beveik 3 tūkstančiais daugiau negu 2015.
+            </p>
+            <p>
+              Tendencijoms nekintant per ateinančius kelis metus į Lietuvą atvyktų gyventi daugiau užsienyje, nei Lietuvoje gimusių žmonių.
+            </p>
+          </div>
+
+          <div class='chat-container' style='width: 360px; float: left;'>
+            <div class='chart-header'>Imigrantų skaičius pagal gimimo vietą</div>
+            <div class='imigration-local-foreign-container linechart-container'></div>
+          </div>
+          <div class='clear'></div>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+          <div class='item-text' style='float: left; width: 270px;'>
+            <p>
+              Užsienyje gimusių imigrantų skaičiaus augimą daugiausia nulėmė
+              Ukrainoje ir Baltarusijoje gimę imigrantai.
+            </p>
+            <p>
+              2016 į Lietuvą imigravo dvigubai daugiau Ukrainoje gimusių žmonių ir du puse karto daugiau Baltarusijoje gimusiųjų nei 2015 metais.
+            </p>
+            <p>
+              Ukrainoje, Rusijoje ir Baltarusijoje gimę žmonės 2016 metais sudarė beveik 60% nelietuvoje gimusių imigrantų skaičiaus.
+          </div>
+
+          <div class='chat-container' style='width: 420px; float: left;'>
+            <div class='chart-header'>Ne Lietuvoje gimusių imigrantų skaičius pagal gimimo šalį</div>
+            <div class='imigration-birthcountry-container linechart-container'></div>
+          </div>
+          <div class='clear'></div>
+        </div>
+
+
+
+
+        <div style="margin-bottom: 10px;">
+          <div class='item-text' style='float: left; width: 270px;'>
+            <p>
+              Emigracijos kryptys smarkiai nesikeitė.
+              Keturios populiariausios emigracijos kryptys išliko Jungtinė Karalystė, Airija, Norvegija ir Vokietija.
+            </p>
+            <p>
+              Jungtinė Karalystė be konkurencijos ir toliau išlieka pati populiariausia
+              šalis emigruoti. 2016 buvo fiksuoti apie 23 tūkstančiai emigrantų į Jungtinę Karalystę - tai yra 22% daugiau negu 2015.
+            </p>
+            <p>
+              Sparčiausiai augo emigracija į Norvegiją, kur emigravo beveik 4 tūkstančiai žmonių - 37% daugiau negu 2015.
+            </p>
+          </div>
+
+          <div class='chat-container' style='width: 420px; float: left;'>
+            <div class='chart-header'>Emigrantų skaičius pagal būsimą gyvenamąją vietą</div>
+            <div class='emigration-direction-container linechart-container'></div>
+          </div>
+          <div class='clear'></div>
+        </div>
+
+        <div style='margin-bottom: 10px; width: 750px; height: 600px; display: block;'>
+          <div class='chat-container' style='display: inline-block; width: 420px; height: 320px; float: right; margin-left: 10px;'>
+            <div class='chart-header'>Mėnesinė emigracija</div>
+            <div class='monthly-emigration-linechart-container linechart-container'></div>
+          </div>
+            <p>
+              Emigracija suaktyvėja kiekvienais metais Liepos, Rugpjūčio ir Rugsėjo mėnesiais. 2016 metais šis sezoniškumas ypač išryškėja rugpjūčio mėnesį - kuomet emigravo apie 4300 žmonių, 36% daugiau negu 2015 metais. Tai galimai buvo įtakota ir BREXIT referendumo 2015 metų antrojoje pusėje. Tikėtina, jog dalis Jungtinėje Karalystėje jau gyvenančių emigrantų suskubo užsiregistruoti bijodami Jungtinės Karalystės išstojimo iš ES pasekmių.
+            </p>
+            <p>
+              Šis atvejis parodo, jog dalis žmonių - nors ir seniai gyveną užsienyje užregistruoja savo išvykimą tik vėliau - esant tam svarbiai priežasčiai.
+            </p>
+            <p>
+              Todėl tikėtina, jog netipiškai ūgtelėjusi emigracija 2015 metų kovo ir balandžio mėnesiais buvo įtakota paskelbtos privalomos karinės tarnybos.
+            </p>
+            <p>
+              2016 Gruodžio ir 2017 Sausio ir Vasario mėnesiais fiksuota iš viso apie 19 tūkstančių siekianti emigracija. Tuo tarpu tuo pačiu laikotarpiu prieš metus emigravo apie 9 tūkstančius žmonių. Beveik du kartus didesni emigracijos skaičiai greičiausiai buvo nulemti gruodžio mėnesį Sodros paskelbto pranešimo, jog bus priverstinai išieškotos skolos už privalomąjį sveikatos draudimą.
+            </p>
+          <div class='clear'></div>
+        </div>
+
+
+        <div style="margin-bottom: 10px;">
+          <div class='item-text' style='float: left; width: 330px;'>
+            <p>
+              2016 metais emigracijos rodikliai blogėjo ne visose Lietuvos savivaldybėse. Šiose septyniose savivaldybėse 2016 metais išvyko mažiau žmonių nei 2015:
+              Vilniaus r. sav. (-15.7%),  Neringos sav. (-8.1%), Druskininkų sav. (-7.4%), Visagino sav. (-5.6%), Joniškio r. sav. (-5.1%), Vilniaus m. sav. (-5.1%), Akmenės r. sav. (-0.2%).
+            </p>
+            <p>
+              Emigracija labiausiai augo Mažeikių r. sav.	(54,2%), Panevėžio r. sav. (51,3%), Kazlų Rūdos sav. (50,3%), Vilkaviškio r. sav. (45,9%), Anykščių r. sav. (44%).
+            </p>
+          </div>
+          <div class='chat-container' style='width: 360px; float: left;'>
+            <div class='chart-header'>Emigracijos pokytis savivaldybėse 2016 metais</div>
+            <div class='maps-container map2016' style='width: 350px;'></div>
+            <div class='map-tooltip'>
+              <div class='map-tooltip-header'></div>
+              <div class='map-tooltip-contents'></div>
+            </div>
+          </div>
+          <div class='clear'></div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/linechart.js"></script>
+    <script src="js/emigration-grid.js"></script>
+</body>
+</html>

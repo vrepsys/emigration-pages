@@ -1,0 +1,61 @@
+svg.map .region {
+  stroke: rgba(58, 13, 13, 1);
+  stroke-width: .3;
+}
+
+svg.map .active-region {
+  stroke: #111;
+  stroke-width: 1;
+}
+
+text.caption {
+  font-family: 'Open Sans', serif;
+  font-weight: 700;
+  color: #555;
+}
+
+text.caption.tiny {
+  font-size: 13px;
+}
+
+text.caption.small {
+  font-size: 15px;
+}
+
+text.caption.medium {
+  font-size: 17px;
+}
+
+div.map-tooltip {
+  position: absolute;
+  padding: 5px 10px;
+  font-size: 14px;
+  background: #333;
+  color: #EEE;
+  border: 1px solid #333;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-weight: 300;
+  font-family: 'Open Sans', serif;
+  shape-rendering: crispEdges;
+  opacity: 0;
+}
+
+.map-tooltip-prc .arrow-up:after {
+  color: #F66;
+  content: '↑ ';
+}
+
+.map-tooltip-prc .arrow-down:after {
+  color: #6F6;
+  content: '↓ ';
+}
+
+.map-tooltip-prc {
+  font-size: 18px;
+  text-align: center;
+}
+
+.map-tooltip-header {
+  font-size: 18px;
+}
