@@ -1,6 +1,6 @@
 body {
-  font-family: 'Open Sans', serif;
-  background: #FFF6F3;
+  font-family: 'Open Sans', sans-serif;
+  background: #f3f0f2;
   /*background: white;*/
   display: flex;
   width: 100%;
@@ -10,17 +10,9 @@ body {
   justify-content: center;
 }
 
-.net-migration-linechart-container,
-.migration-linechart-container,
-.monthly-emigration-linechart-container,
-.emigration-by-sex-linechart-container {
-
-}
-
 .chart-container {
   background-color: white;
-  /*background-color: #f9f9f9;*/
-  border: 1px solid #EEE;
+  border: 1px solid #cccccc;
   border-collapse: collapse;
   padding: 14px;
 }
@@ -69,7 +61,7 @@ a[href] {
 }
 
 .item {
-  background: #FFF6F3;
+  /* background: #FFF6F3; */
   /*background: white;*/
   --box-shadow: 0 1px 1px gray;
   --border-radius: 2px;
@@ -80,11 +72,20 @@ a[href] {
 }
 
 .item h1 {
-  font-family: 'Karma', serif;
-  font-size: 58px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
   line-height: 1.3;
   font-weight: 700;
-  color: #444;
+  color: #333;
+  margin: 0;
+}
+
+.item h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #333;
   margin: 0;
 }
 

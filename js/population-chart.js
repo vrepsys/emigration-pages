@@ -43,8 +43,6 @@ $( document ).ready(function() {
             }
         });
 
-        // everything till here is just data mashing
-
         var margin = {top: 20, right: 80, bottom: 30, left: 50},
             width = 500 - margin.left - margin.right,
             height = 250 - margin.top - margin.bottom;

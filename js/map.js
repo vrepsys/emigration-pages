@@ -52,7 +52,7 @@ $( document ).ready(function() {
     });
 
     function onDataLoaded() {
-        map(geodata, geodata.objects.LTU, data, '2015', '2016', dimensions.large, d3.select('.map2016'));
+        map(geodata, geodata.objects.LTU, data, '2016', '2017', dimensions.large, d3.select('.map2016'));
     }
 });
 
@@ -60,7 +60,6 @@ function map(geoJSON, mappedFeature, metric, yearFrom, yearTo, dimensions, conta
     var d = dimensions;
     var tooltip = d3.select('.map-tooltip');
     var filter = yearFrom + '-' + yearTo;
-    // console.log(metric);
 
     var svg = container.append('svg')
         .attr('width', d.width)
@@ -68,11 +67,11 @@ function map(geoJSON, mappedFeature, metric, yearFrom, yearTo, dimensions, conta
         .attr('class', 'map centered-item');
 
     var greenScale = d3.scale.linear()
-      .domain([0, 1])
+      .domain([0, 59])
       .range(['#e6f3e6', 'green']);
 
     var redScale = d3.scale.linear()
-      .domain([-1, 0])
+      .domain([-35, 0])
       .range(['red', '#f3e6e6']);
 
     var colorScale = function(x) {
@@ -109,17 +108,16 @@ function map(geoJSON, mappedFeature, metric, yearFrom, yearTo, dimensions, conta
             d3.select(this).classed("active-region", true)
             tooltip.style("opacity", 0.9);
             tooltip.select('.map-tooltip-header').html(d.properties.name)
-            var migrants2015 = metric[d.properties.name][yearFrom];
-            var migrants2016 = metric[d.properties.name][yearTo];
-
-            var prc = (parseFloat(metric[d.properties.name][filter])*100).toFixed(1);
+            var migrants2016 = metric[d.properties.name][yearFrom];
+            var migrants2017 = metric[d.properties.name][yearTo];
+            var prc = metric[d.properties.name][filter];
             var arrow = prc > 0 ? "arrow-up" : "arrow-down";
             var color = prc > 0 ? "red" : "green";
             var prcText = prc + '%';
             tooltip.select('.map-tooltip-contents').html(
               "Emigravo žmonių:<br/>" +
-              "2015 metais " + migrants2015 +
-              "<br/>2016 metais " + migrants2016 +
+              "2016 metais " + migrants2016 +
+              "<br/>2017 metais " + migrants2017 +
               "<div class='map-tooltip-prc " + color + "'><span class='"+arrow+"'></span>" + prcText + "</div>");
             tooltip
                 .style("left", (d3.event.pageX + 25) + "px")

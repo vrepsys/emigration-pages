@@ -20,6 +20,9 @@ $( document ).ready(function() {
     var yScale = d3.scale.linear()
         .range([height, 0]);
 
+    var width2 = function() { return 2; }
+    var lineWidth = settings.lineWidth || width2;
+
     var colorScale = d3.scale.ordinal().range(
       ['#993366', '#339966', '#666699', '#FF6600', '#0066CC', '#008080',
       '#993300', '#333399', '#800000', '#660066', '#003366', '#FF8080']);
@@ -60,7 +63,6 @@ $( document ).ready(function() {
         function allExceptDate(value, key) { return key == "date"; }
 
         d = { date: parseDate(d.date), observations: _.omitBy(d, allExceptDate) };
-        // d.date = parseDate(d.date);
         return d;
       },
       function(error, data) {
@@ -83,20 +85,6 @@ $( document ).ready(function() {
         xScale.domain(d3.extent(data, function(d) { return d.date; }));
         yScale.domain(settings.domain);
 
-      //   svg.append("g")
-      //      .append("rect")
-      //      .attr("class", "green-shade")
-      //      .attr("transform", translate(xScale(parseDate("2010")), 0))
-      //      .attr("width", xScale(parseDate("2014")) - xScale(parseDate("2010")))
-      //      .attr("height", height);
-       //
-      //  svg.append("g")
-      //     .append("rect")
-      //     .attr("class", "red-shade")
-      //     .attr("transform", translate(xScale(parseDate("2014")), 0))
-      //     .attr("width", xScale(parseDate("2015")) - xScale(parseDate("2014")))
-      //     .attr("height", height);
-
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
@@ -113,10 +101,12 @@ $( document ).ready(function() {
 
         city.append("path")
             .attr("class", "line")
+            .attr("stroke-width", lineWidth)
             .attr("d", function(d) { return line(d.values); })
             .style("stroke", function(d) { return d.color; });
 
-        var circleRadius = settings.circleRadius || '2';
+        var defaultRadius = function() { return 2; };
+        var circleRadius = settings.circleRadius || defaultRadius;
 
         city.selectAll("circle").data(function(d) {
             return d.values.filter(settings.highlightedTicks);
@@ -126,7 +116,6 @@ $( document ).ready(function() {
           .attr("class", "circle")
           .attr("cx", function(d) { return xScale(d.date); })
           .attr("cy", function(d) { return yScale(d.count); })
-          .attr("stroke-width", 1)
           .attr("stroke", function(d) { return d.color; })
           .attr("fill",   function(d) { return d.color; })
           .attr("r", circleRadius);
@@ -241,6 +230,8 @@ $( document ).ready(function() {
             // calculate x coord for the vertical focus line
             var xCoord = xScale(rowFocused.date);
 
+            console.log(xCoord, rowFocused.date);
+
             focusVertical
               .attr("x1", xCoord)
               .attr("x2", xCoord);
@@ -296,31 +287,12 @@ $( document ).ready(function() {
 
             var format = yScale.tickFormat();
 
-            // var statusIdentifiersPresent = d3.set();
-
             tr.append('td').attr('class', 'value')
               .html(function(rec) {
                 var o = rec.obs;
                 var text = format(o.value);
-                // if (o.status) {
-                //   text += '<sup>' + o.status + '</sup>';
-                //   statusIdentifiersPresent.add(o.status);
-                // }
                 return text;
               });
-            //
-            //
-            // var statusesBox = utils.selectOrAppend(infoBox, 'div', 'status-labels');
-            //
-            // var status = statusesBox.selectAll('div').data(statusIdentifiersPresent.values());
-            //
-            // status.enter().append('div');
-            //
-            // status.text(function(s) {
-            //   return s + ' - ' + dataManager.getDataset().statusLabelsByIdentifier[s];
-            // });
-            //
-            // status.exit().remove();
 
           };
 
@@ -330,10 +302,9 @@ $( document ).ready(function() {
 
   var yearFormat = d3.time.format("%Y");
   var parseYear = yearFormat.parse;
-  var highlightedYears = [2010, 2011, 2012, 2013, 2014, 2015, 2016].map(function(year) {
+  var highlightedYears = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017].map(function(year) {
     return parseYear(_.toString(year)).getTime();
   });
-  // var highlightedYears = [];
 
   var parseMonth = d3.time.format("%m").parse;
 
@@ -347,9 +318,9 @@ $( document ).ready(function() {
     container: d3.select(".migration-linechart-container"),
     dimensions: ['date', 'expats', 'immigrants'],
     labels: {expats: 'Emigrantai', immigrants: 'Imigrantai'},
-    tickValues: _.range(2010, 2017).map(_.toString).map(parseYear),
+    tickValues: _.range(2010, 2018).map(_.toString).map(parseYear),
     domain: [0, 90000],
-    width: 380,
+    width: 420,
     height: 330,
     margins: {top: 20, right: 120, bottom: 30, left: 50},
   };
@@ -366,11 +337,11 @@ $( document ).ready(function() {
     container: d3.select(".imigration-local-foreign-container"),
     dimensions: ['date', 'immigrants_lt', 'immigrants_foreign'],
     labels: {immigrants_lt: 'Lietuva', immigrants_foreign: 'Užsienis'},
-    tickValues: _.range(2010, 2017).map(_.toString).map(parseYear),
+    tickValues: _.range(2010, 2018).map(_.toString).map(parseYear),
     domain: [0, 20000],
-    width: 380,
-    height: 330,
-    margins: {top: 20, right: 120, bottom: 30, left: 50},
+    width: 400,
+    height: 350,
+    margins: {top: 20, right: 90, bottom: 30, left: 50},
   };
 
   drawLinechart(immigrationByBirthplaceChartSettings);
@@ -384,13 +355,13 @@ $( document ).ready(function() {
       return _.includes(highlightedYears, d.date.getTime());
     },
     container: d3.select(".imigration-birthcountry-container"),
-    dimensions: ['date', 'immigrants_other', 'immigrants_ukraine','immigrants_russia','immigrants_belarus','immigrants_uk'],
-    labels: {immigrants_ukraine: 'Ukraina', 'immigrants_russia': 'Rusija', immigrants_belarus: 'Baltarusija', immigrants_uk: 'Jungtinė Karalystė', immigrants_other: 'Kitos Šalys'},
-    tickValues: _.range(2010, 2017).map(_.toString).map(parseYear),
-    domain: [0, 3500],
-    width: 430,
-    height: 280,
-    margins: {top: 20, right: 170, bottom: 30, left: 50},
+    dimensions: ['date', 'immigrants_other', 'immigrants_ukraine','immigrants_russia','immigrants_belarus','immigrants_us'],
+    labels: {immigrants_ukraine: 'Ukraina', 'immigrants_russia': 'Rusija', immigrants_belarus: 'Baltarusija', immigrants_us: 'JAV', immigrants_other: 'Kitos Šalys'},
+    tickValues: _.range(2010, 2018).map(_.toString).map(parseYear),
+    domain: [0, 4500],
+    width: 420,
+    height: 340,
+    margins: {top: 20, right: 110, bottom: 30, left: 50},
   };
 
   drawLinechart(immigrationByBirthCountryChartSettings);
@@ -403,12 +374,11 @@ $( document ).ready(function() {
       return _.includes(highlightedYears, d.date.getTime());
     },
     container: d3.select(".emigration-direction-container"),
-    // dimensions: ['date', 'expats_ireland', 'expats_spain', 'expats_norway', 'expats_de', 'expats_other', 'expats_uk' , 'expats_us'],
     dimensions: ['date', 'expats_uk', 'expats_other', 'expats_ireland', 'expats_norway', 'expats_germany' ],
     labels: {expats_ireland: 'Airija', expats_norway: 'Norvegija', expats_uk: 'Jungtinė Karalystė', expats_other: 'Kitos Valstybės', expats_germany: 'Vokietija'},
-    tickValues: _.range(2010, 2017).map(_.toString).map(parseYear),
+    tickValues: _.range(2010, 2018).map(_.toString).map(parseYear),
     domain: [0, 45000],
-    width: 430,
+    width: 460,
     height: 360,
     margins: {top: 20, right: 170, bottom: 30, left: 50},
   };
@@ -445,19 +415,52 @@ $( document ).ready(function() {
     highlightedTicks: function(d) {
       return true;
     },
-    // circleRadius: '3',
+    lineWidth: function(d) {
+      return d && d.name == '2018' ? 3 : 1;
+    },
+    circleRadius: function(d) {
+      return d && d.name == '2018' ? 2 : 1;
+    },
     container: d3.select(".monthly-emigration-linechart-container"),
-    dimensions: ['date', '2014', '2015', '2016', '2017'],
-    labels: {2014: '2014', 2015: '2015', 2016: '2016', 2017: '2017'},
+    dimensions: ['date', '2014', '2015', '2016', '2017', '2018'],
+    labels: {2014: '2014', 2015: '2015', 2016: '2016', 2017: '2017', 2018: '2018'},
     tickValues: _.range(1, 13).map(_.toString).map(parseMonth),
-    domain: [0, 8000],
+    domain: [2000, 6500],
     width: 460,
-    height: 275,
+    height: 300,
     margins: {top: 20, right: 95, bottom: 30, left: 50},
   };
 
   drawLinechart(mothlyEmigrationChartSettings);
 
+
+
+  var mothlyNetMigrationChartSettings = {
+    csvDataPath: 'data/monthly-net-migration.csv',
+    dateParser: parseMonth,
+    tickFormat: function(month) {
+      var f = d3.time.format("%m")(month);
+      return monthNames[f].short;
+    },
+    infoBoxTickFormat: function(month) {
+      var f = d3.time.format("%m")(month);
+      return monthNames[f].long;
+    },
+    highlightedTicks: function(d) {
+      return true;
+    },
+    // circleRadius: '3',
+    container: d3.select(".monthly-net-migration-linechart-container"),
+    dimensions: ['date', '2014', '2015', '2016', '2017', '2018'],
+    labels: {2014: '2014', 2015: '2015', 2016: '2016', 2017: '2017', 2018: '2018'},
+    tickValues: _.range(1, 13).map(_.toString).map(parseMonth),
+    domain: [-5000, 1000],
+    width: 460,
+    height: 300,
+    margins: {top: 20, right: 95, bottom: 30, left: 50},
+  };
+
+  drawLinechart(mothlyNetMigrationChartSettings);
 
   var emigrationBySexChartSettings = {
     csvDataPath: 'data/emigration-by-sex.csv',
@@ -477,8 +480,4 @@ $( document ).ready(function() {
   };
 
   drawLinechart(emigrationBySexChartSettings);
-
-
-
-
 });

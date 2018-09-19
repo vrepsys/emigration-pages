@@ -7,12 +7,11 @@
     <title>Emigracija</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
-    <link href="https://fonts.googleapis.com/css?family=Karma:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css?v=1.0">
     <link rel="stylesheet" href="css/linechart.css?v=1.0">
     <link rel="stylesheet" href="css/map.css?v=1.0">
     <link rel="stylesheet" href="css/population-chart.css?v=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Karma:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.12.0/lodash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
@@ -24,21 +23,48 @@
 <body>
     <div class='container'>
       <div class='item'>
-        <h1>Naujausi emigracijos duomenys rodo pokyčius</h1>
-
+        <h1>Naujausi Lietuvos migracijos duomenys: atradimai ir siurprizai</h1>
+        <p>
+          Lietuvoje pastebiu didelį trūkumą labiau analitinio žvilgsnio į valstybės ir visuomenės reiškinius ir problemas. Tas trūkumas yra dviejose institucijose: žiniasklaidoje ir valstybės valdyme.
+        </p>
+        <p>
+          Pavyzdžiui. 2015 metais pradėjo smarkiai augti emigracija ir 
+          viena dalis politikų ėmė kaltinti privalomąją karinę tarnybą, kiti - šią sąsają neigė, tačiau niekas neanalizavo kas ir kodėl vyksta.
+          Ir politikų ir spaudos pasisakymai atrodė labiau emociniai, negu analitiniai.
+          Spaudos atstovai paskambindavo ekspertams, kurie išsakydavo savo nuomones, kurios dažniausiai būdavo tik spėjimai.
+        </p>
+        <p>
+          Šiuo metu, beje, panašiai negili diskusija vyksta dėl to ką reiškia, kad atlyginimai Lietuvoje augo sparčiausiai iš visų OECD šalių. 
+        </p>
+        <p>Su pavydu kartais skaitau 
+          <a href='https://www.nytimes.com/'>New York Times</a> ar 
+          <a href='https://www.theguardian.com/'>The Guardian</a>ar net visai naujos kartos naujienų portalą <a href='https://fivethirtyeight.com/'>fivethirtyeight</a>.
+          Šie leidiniai publikuoja daug analizės ir savo tarpe turi žmones ir ištisus skyrius, kurie daro duomenų analizę ir vizualizaciją.
+        <p>
+          Kad ir kaip bebūtų, nusprendžiau pats paanalizuoti emigracijos duomenis ir pamėginti surasti ten atsakymus ir atrasti įdomybes. 
+          Tikiuosi ir jums bus įdomu.
+        </p>
         <div style="margin-bottom: 10px;">
-          <div class='item-text' style='float: left; width: 330px;'>
+          <div class='item-text' style='float: left; width: 310px;'>
+            <h2>3 migracijos periodai</h2>
+            <p>Nuo 2010 iki 2018 tarptautinės migracijos tendencijas Lietuvoje galima suskirstyti į 3 periodus.</p>
             <p>
-              Nuo 2010 iki 2014 metų mažėjusi emigracija ir augusi imigracija suteikė vilčių, jog emigracija yra sparčiai nykstanti problema. Nuo 2010 iki 2014 emigracija sumažėjo daugiau negu du kartus, ir atrodė jog išvažiuojančiųjų skaičius greitai susilygins su į Lietuvą atvykstančių gyventi žmonių skaičiumi.
+              Nuo 2010 iki 2014 kiekvienais metais mažėjant emigrantų, o imigrantų skaičiau augant, atrodė, kad
+              neto migracija greitai pasieks 0.
             </p>
             <p>
-              Tačiau 2015-2016 metais migracijos rodikliai pakeitė kryptį. Emigracija vėl pradėjo sparčiai augti, o imigracija trauktis. 2016 fiksuojamas 13% emigracijos augimas - emigravo apie 5800 gyventojų daugiau negu 2015 metais.
+              Tačiau 2015 ir 2016 metais migracijos rodikliai pakeitė kryptį. Emigracija vėl ėmė sparčiai augti, o imigracija trauktis. 
+              2016 fiksuojamas 13% emigracijos augimas, o imigrantų atvyko 8% mažiau.
             </p>
             <p>
-              Tuo tarpu imigracija traukėsi 8%. 2016-ais šalyje gyveną deklaravo beveik 2000 gyventojų mažiau nei 2015.
+              2017 metais migracijos tendencijos vėl keitėsi, ir emigrantų vėl mažėjo, o imigrantų skaičius augo.
+            </p>
+            <p>
+              Pažiūrėkime, ką apie šiuos pokyčius ir jų priežastis mums atskleis detalesni migracijos duomenys.
+            </p>
           </div>
 
-          <div class='chart-container' style='width: 360px; float: left;'>
+          <div class='chart-container' style='width: 400px; float: left;'>
             <div class='chart-header'>Metinis emigrantų skaičius</div>
             <div class='migration-linechart-container linechart-container'></div>
             <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
@@ -47,20 +73,84 @@
         </div>
 
         <div style="margin-bottom: 10px;">
-          <div class='item-text' style='float: left; width: 330px;'>
+            <div class='chart-container' style='display: inline-block; width: 430px; float: right; margin-left: 10px;'>
+              <div class='chart-header'>Mėnesinė emigracija</div>
+              <div class='monthly-emigration-linechart-container linechart-container'></div>
+              <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
+            </div>
+              <h2>BREXIT, šaukimai į kariuomenę ir mokesčiai Sodrai</h2>
+              <p>
+                Emigracija suaktyvėja kiekvienais metais Liepos, Rugpjūčio ir Rugsėjo mėnesiais.
+                2016 metais šis sezoniškumas ypač išryškėja rugpjūčio mėnesį - 
+                kuomet emigravo apie 4300 žmonių.
+              </p>
+                Tai galimai buvo įtakota BREXIT referendumo 2015 metų antroje pusėje. 
+                Tikėtina, jog dalis Jungtinėje Karalystėje jau gyvenančių emigrantų 
+                suskubo užsiregistruoti bijodami Jungtinės Karalystės išstojimo iš ES pasekmių.
+              </p>
+              <p>
+                Šis atvejis parodo, jog dalis žmonių - nors ir seniai gyvena užsienyje užregistruoja savo išvykimą tik vėliau - esant tam svarbiai priežasčiai.
+              </p>
+              <p>
+                Todėl tikėtina, jog netipiškai ūgtelėjusi emigracija 2015 metų kovo ir 
+                balandžio mėnesiais buvo įtakota paskelbtos privalomos karinės tarnybos.
+                Nuo 2010 tai vieninteliai metai, kai šiais mėnesiais fiksuojamas išskirtinis emigracijos augimas.
+              </p>
+              <p>
+                2016 Gruodžio ir 2017 Sausio ir Vasario mėnesiais fiksuota iš viso apie 19 tūkstančių siekianti emigracija. 
+                Tuo tarpu tuo pačiu laikotarpiu prieš metus emigravo apie 9 tūkstančius žmonių. 
+                Šio laikotarpio pradžioje, 2016 Gruodžio mėnesį Sodra paskelbė, jog bus priverstinai išieškotos skolos už privalomąjį sveikatos draudimą.
+              </p>
+            <div class='clear'></div>
+          </div>
+  
+  
+          <div style="margin-bottom: 10px;">
+            <div class='chart-container' style='display: inline-block; width: 430px; float: right; margin-left: 10px;'>
+              <div class='chart-header'>Mėnesinė net migracija</div>
+              <div class='monthly-net-migration-linechart-container linechart-container'></div>
+              <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
+            </div>
+            <h2>2018 metų lūžis: imigracija aplenkė emigraciją</h2>
+              <p>
+                  2018 metų neto mėnesinės migracijos (kuri gaunama iš imigrantų skaičiaus atėmus emigrantų skaičių) duomenys atskleidžia visiškai naują tendenciją: 
+                  teigiamą neto migraciją nuo 2018 Gegužės iki Liepos. 
+              </p>
+              <p>
+                Nors panašu, kad 2018 metų neto migracija vis dar bus neigiama, 
+                tačiau šie metai gali tapti lūžio tašku net tik dėl to, jog
+                į šalį pradės atvykti daugiau žmonių negu išvykti. 
+              </p>
+              <p>
+                Į šalį gyventi atvyksta daugiau užsienio pilietybę turinčių žmonių, negu turinčių lietuvišką.
+              </p>
+            <div class='clear'></div>
+          </div>
+
+        
+
+        <div style="margin-bottom: 10px;">
+          <div class='item-text' style='float: left; width: 310px;'>
+            <h2>Kas atvažiuoja gyventi į Lietuvą?</h2>
             <p>
-              Skaidant imigarcijos duomenis pagal gimimo vietą galima pastebėti, jog Lietuvoje gimusių imigrantų skaičius 2014 metais pasiekė aukščiausią tašką, o 2015 ir 2016 metais sparčiai krito.
+              Nuo 2010 iki 2014 augęs imigrantų turinčių Lietuvos pilietybę skaičius, 
+              nuo 2015 metų nuosekliai krito žemyn.
             </p>
             <p>
-              Tuo tarpu užsienyje gimusių žmonių 2016 metais į Lietuvą gyventi atvyko beveik 3 tūkstančiais daugiau negu 2015.
+              Tam tikras lūžis įvyko jau 2017 metais, kai pirmą kartą į Lietuvą gyventi atvyko daugiau
+              užsienio pilietybę turinčių žmonių, negu turinčių Lietuvos pilietybę.
             </p>
             <p>
-              Tendencijoms nekintant per ateinančius kelis metus į Lietuvą atvyktų gyventi daugiau užsienyje, nei Lietuvoje gimusių žmonių.
+              Nelietuviškos pilietybės imigrantų skaičius nuo 2010 metų išaugo apie 10 kartų. 
+            </p>
+            <p>
+              Nors šių imigrantų skaičius vis dar sudaro tik labai nedidelę dalį Lietuvos gyventojų, panašu,
+              jog užsienio pilietybę turinčių imigrantų skaičius gali labai stipriai pagerinti bendrus migracijos rodiklius ateityje.
             </p>
           </div>
 
-          <div class='chart-container' style='width: 360px; float: left;'>
-            <div class='chart-header'>Imigrantų skaičius pagal gimimo vietą</div>
+          <div class='chart-container' style='width: 400px; float: left;'>
+            <div class='chart-header'>Imigrantų skaičius pagal pilietybę</div>
             <div class='imigration-local-foreign-container linechart-container'></div>
             <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
           </div>
@@ -68,20 +158,23 @@
         </div>
 
         <div style="margin-bottom: 10px;">
-          <div class='item-text' style='float: left; width: 270px;'>
+          <div class='item-text' style='float: left; width: 300px;'>
+            <h2>Vis daugiau Ukrainos ir Baltarusijos piliečių imigruoja į Lietuvą</h2>
             <p>
-              Užsienyje gimusių imigrantų skaičiaus augimą daugiausia nulėmė
-              Ukrainoje ir Baltarusijoje gimę imigrantai.
+              2017 metais stulbinančiai augusi Ukrainos ir Baltarusijos piliečių imigracija į Lietuvą stipriai įtakojo
+              tų metų augimą. 
             </p>
             <p>
-              2016 į Lietuvą imigravo dvigubai daugiau Ukrainoje gimusių žmonių ir du puse karto daugiau Baltarusijoje gimusiųjų nei 2015 metais.
+              2017 metais Ukrainos piliečių į Lietuvą imigravo beveik 3 kartus daugiau negu 2016. Baltarusijos piliečių imigravo dvigubai daugiau. 
             </p>
             <p>
-              Ukrainoje, Rusijoje ir Baltarusijoje gimę žmonės 2016 metais sudarė beveik 60% nelietuvoje gimusių imigrantų skaičiaus.
+              Nuo 2014 Ukrainos ir Baltarusijos gyventojų imigracija į Lietuvą pradėjo stipriai augti, 
+              o imigracija iš Rusijos mažėti. Tai sutampa su 2013 metų pabaigoje prasidėjusiu Ukrainos-Rusijos konfliktu.
+            </p>
           </div>
 
-          <div class='chart-container' style='width: 420px; float: left;'>
-            <div class='chart-header'>Ne Lietuvoje gimusių imigrantų skaičius pagal gimimo šalį</div>
+          <div class='chart-container' style='width: 410px; float: left;'>
+            <div class='chart-header'>Imigravusių užsienio piliečių skaičius pagal pilietybę</div>
             <div class='imigration-birthcountry-container linechart-container'></div>
             <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
           </div>
@@ -93,20 +186,24 @@
 
         <div style="margin-bottom: 10px;">
           <div class='item-text' style='float: left; width: 270px;'>
+            <h2>Kur emigruoja Lietuvos gyventojai?</h2>
             <p>
               Emigracijos kryptys smarkiai nesikeitė.
-              Keturios populiariausios emigracijos kryptys išliko Jungtinė Karalystė, Airija, Norvegija ir Vokietija.
+              Keturios populiariausios emigracijos kryptys išlieka Jungtinė Karalystė, Norvegija, Airija ir Vokietija.
             </p>
             <p>
               Jungtinė Karalystė be konkurencijos ir toliau išlieka pati populiariausia
-              šalis emigruoti. 2016 buvo fiksuoti apie 23 tūkstančiai emigrantų į Jungtinę Karalystę - tai yra 22% daugiau negu 2015.
+              šalis emigruoti.
             </p>
             <p>
-              Sparčiausiai augo emigracija į Norvegiją, kur emigravo beveik 4 tūkstančiai žmonių - 37% daugiau negu 2015.
+              Tačiau 2017 metais buvo fiksuotas emigracijos į Jungtinę Karalystę, Airiją ir 'Kitas Valstybes' mažėjimas.
+            </p>
+            <p>
+              2017 metais augo emigracija Norvegiją ir Vokietiją.
             </p>
           </div>
 
-          <div class='chart-container' style='width: 420px; float: left;'>
+          <div class='chart-container' style='width: 440px; float: left;'>
             <div class='chart-header'>Emigrantų skaičius pagal būsimą gyvenamąją vietą</div>
             <div class='emigration-direction-container linechart-container'></div>
             <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
@@ -114,40 +211,27 @@
           <div class='clear'></div>
         </div>
 
-        <div style='margin-bottom: 10px; width: 750px; height: 600px; display: block;'>
-          <div class='chart-container' style='display: inline-block; width: 420px; height: 320px; float: right; margin-left: 10px;'>
-            <div class='chart-header'>Mėnesinė emigracija</div>
-            <div class='monthly-emigration-linechart-container linechart-container'></div>
-            <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
-          </div>
-            <p>
-              Emigracija suaktyvėja kiekvienais metais Liepos, Rugpjūčio ir Rugsėjo mėnesiais. 2016 metais šis sezoniškumas ypač išryškėja rugpjūčio mėnesį - kuomet emigravo apie 4300 žmonių, 36% daugiau negu 2015 metais. Tai galimai buvo įtakota ir BREXIT referendumo 2015 metų antrojoje pusėje. Tikėtina, jog dalis Jungtinėje Karalystėje jau gyvenančių emigrantų suskubo užsiregistruoti bijodami Jungtinės Karalystės išstojimo iš ES pasekmių.
-            </p>
-            <p>
-              Šis atvejis parodo, jog dalis žmonių - nors ir seniai gyveną užsienyje užregistruoja savo išvykimą tik vėliau - esant tam svarbiai priežasčiai.
-            </p>
-            <p>
-              Todėl tikėtina, jog netipiškai ūgtelėjusi emigracija 2015 metų kovo ir balandžio mėnesiais buvo įtakota paskelbtos privalomos karinės tarnybos.
-            </p>
-            <p>
-              2016 Gruodžio ir 2017 Sausio ir Vasario mėnesiais fiksuota iš viso apie 19 tūkstančių siekianti emigracija. Tuo tarpu tuo pačiu laikotarpiu prieš metus emigravo apie 9 tūkstančius žmonių. Beveik du kartus didesni emigracijos skaičiai greičiausiai buvo nulemti gruodžio mėnesį Sodros paskelbto pranešimo, jog bus priverstinai išieškotos skolos už privalomąjį sveikatos draudimą.
-            </p>
-          <div class='clear'></div>
-        </div>
-
-
         <div style="margin-bottom: 10px;">
           <div class='item-text' style='float: left; width: 330px;'>
+            <h2>Emigracija mažėja visuose miestuose</h2>
             <p>
-              2016 metais emigracijos rodikliai blogėjo ne visose Lietuvos savivaldybėse. Šiose septyniose savivaldybėse 2016 metais išvyko mažiau žmonių nei 2015:
-              Vilniaus r. sav. (-15.7%),  Neringos sav. (-8.1%), Druskininkų sav. (-7.4%), Visagino sav. (-5.6%), Joniškio r. sav. (-5.1%), Vilniaus m. sav. (-5.1%), Akmenės r. sav. (-0.2%).
+              2017 Metais emigracija mažėjo visų Lietuvos miestų ir daugelio rajonų savivaldybėse. 
             </p>
             <p>
-              Emigracija labiausiai augo Mažeikių r. sav.	(54,2%), Panevėžio r. sav. (51,3%), Kazlų Rūdos sav. (50,3%), Vilkaviškio r. sav. (45,9%), Anykščių r. sav. (44%).
+              Emigracija labiausiai sumažėjo Birštono sav.(31,5%), Alytaus m. sav. (21,5%), 
+              Palangos m. sav. (17,0%), Klaipėdos m. sav. (16,5%), Širvintų r. sav. (13,3%).
             </p>
+            <p>
+                Emigracija labiausiai augo 
+                Neringos sav. (58,8%), 
+                Rietavo sav. (27,7%), 
+                Joniškio r. sav. (21,7%), 
+                Biržų r. sav. (21,6%), 
+                Šakių r. sav. (21,6%).
+              </p>
           </div>
-          <div class='chart-container' style='width: 360px; float: left;'>
-            <div class='chart-header'>Emigracijos pokytis savivaldybėse 2016 metais</div>
+          <div class='chart-container' style='width: 380px; float: left;'>
+            <div class='chart-header'>Emigracijos pokytis savivaldybėse 2017 metais</div>
             <div class='maps-container map2016' style='width: 350px;'></div>
             <div class='chart-source-text'>Duomenys: <a href='http://www.stat.gov.lt'>www.stat.gov.lt</a> Vizualizacija: <a href='http://www.gridualism.com'>www.gridualism.com</a></div>
             <div class='map-tooltip'>
